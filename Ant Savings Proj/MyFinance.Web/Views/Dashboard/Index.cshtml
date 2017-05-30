@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+@section scripts {
+    <script src="~/scripts/jquery.slimscroll.min.js"></script>
+    <script src="~/scripts/viewscripts/Dashboard/Index.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            adjustCss();
+        });
+
+        function loadPanel(e) {
+            $('#btnManager').removeClass('active');
+            $('#btnFunds').removeClass('active');
+            $('#btnReserves').removeClass('active');
+            $('#btnRules').removeClass('active');
+            $('#btnSimulator').removeClass('active');
+            $(e).addClass('active');
+
+            if (e == '#btnManager') {
+                $.get('@Url.Action("SavingsAccountPartial", "Manager")', null, function (data) {
+                    $('#dashboardContent').html('').append(data);
+                    adjustCss();
+                });
+            }
+            else if (e == '#btnFunds') {
+                $.get('@Url.Action("FundsPartial", "Funds")', null, function (data) {
+                    $('#dashboardContent').html('').append(data);
+                    adjustCss();
+                });
+            }
+            else if (e == '#btnReserves') {
+                $.get('@Url.Action("ReservesPartial", "Reserve")', null, function (data) {
+                    $('#dashboardContent').html('').append(data);
+                    adjustCss();
+                });
+            }
+            else if (e == '#btnSimulator') {
+                $.get('@Url.Action("SimulatorPartial", "Simulator")', null, function (data) {
+                    $('#dashboardContent').html('').append(data);
+                    adjustCss();
+                });
+            }
+            else if (e == '#btnRules') {
+                $.get('@Url.Action("RulesPartial", "Rules")', null, function (data) {
+                    $('#dashboardContent').html('').append(data);
+                    adjustCss();
+                });
+            }
+        }
+
+        function reloadGrid() {
+            $.post('@Url.Action("GetTransationList", "Manager")',
+                { fundId: $('#fundList').val(), reserveId: $('#reserveList').val() },
+                function (data) {
+                    $('#transactionList').html('').append(data.transactionList);
+                    $('#balance').html('').append(data.balance);
+                });
+        }
+    </script>
+}
+
+<div class="content">
+        <div>
+            <div class="btn-group-justified btn-group" style="margin-bottom: 5px; box-shadow: 1px 1px 5px;">
+                <a onclick="loadPanel('#btnManager')" href="#" type="button" class="btn btn-inverse active">Gerenciador</a>
+                <a onclick="loadPanel('#btnFunds')" href="#" type="button" class="btn btn-inverse">Fundos</a>
+                <a onclick="loadPanel('#btnReserves')" href="#" type="button" class="btn btn-inverse">Objetivos</a>
+                <a onclick="loadPanel('#btnSimulator')" href="#" type="button" class="btn btn-inverse">Simulador</a>
+                <a onclick="loadPanel('#btnRules')" href="#" type="button" class="btn btn-inverse">Regras de Depósito</a>
+            </div>
+        </div>
+        <div id="dashboardContent" class="white-container">
+            @Html.Action("SavingsAccountPartial", "Manager")
+        </div>
+</div>

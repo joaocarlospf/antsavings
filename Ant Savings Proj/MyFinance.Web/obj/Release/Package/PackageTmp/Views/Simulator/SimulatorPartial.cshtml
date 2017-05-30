@@ -1,0 +1,129 @@
+﻿@model List<MyFinance.Core.Model.Reserve>
+
+<div>
+    <canvas id="canvas" height="450" width="900"></canvas>
+</div>
+<div class="frame">
+    <div class="row">
+        <div class="col-md-6">
+            <label class="checkbox label">
+                <input type="checkbox" id="chkConsiderInfl" data-toggle="checkbox">
+                Considerar Inflação
+            </label>
+            <select id="txInfl">
+                <option value="0">Centro da meta (4,5%)</option>
+                <option value="1">Teto da meta (6,0%)</option>
+                <option value="2">Outro</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.Label("Depósito Mensal", new { @class = "col-md-4 control-label" })
+                <div class=" col-md-5 input-group">
+                    <span class="input-group-addon">$</span>
+                    @Html.TextBox("teste", "0,00", htmlAttributes: new { id = "monthlyDep", @class = "form-control value-mask" })
+                </div>
+                <div class=" col-md-3">
+                    <a type="button" data-toggle="modal" href="#" class="btn btn-primary"><span class="ficon-add"></span> Reset</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div id="fundsTable" class="tbl tbl-striped" style="overflow: hidden;">
+                <div class="row tbl-header" style="font-weight: bold;">
+                    <div class="col-md-8">Fundo</div>
+                    <div class="col-md-4">Rendimento</div>
+                </div>
+                <div style="height: 120px;" class="tbl-line">
+                    <div id="data-container" class="slimscroll">
+                        <div class="row tbl-row">
+                            <div class="col-md-8">
+                                Curto Prazo (0~2 anos)
+                            </div>
+                            <div class="col-md-4">
+                                3% (ao ano)
+                            </div>
+                        </div>
+                        <div class="row tbl-row">
+                            <div class="col-md-8">
+                                Médio Prazo (2~7 anos)
+                            </div>
+                            <div class="col-md-4">
+                                5% (ao ano)
+                            </div>
+                        </div>
+                        <div class="row tbl-row">
+                            <div class="col-md-8">
+                                Longo Prazo (>7 anos)
+                            </div>
+                            <div class="col-md-4">
+                                10% (ao ano)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tbl-footer" style="height: 10px"></div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div id="ReservesTable" class="tbl tbl-striped" style="overflow: hidden;">
+                <div class="row tbl-header" style="font-weight: bold;">
+                    <div class="col-md-4">Obetivo</div>
+                    <div class="col-md-3">Fundo</div>
+                    <div class="col-md-3">Valor (R$)</div>
+                    <div class="col-md-2" style="padding-right: 30px;">Incluir</div>
+                </div>
+                <div style="height: 120px;" class="tbl-line">
+                    <div id="data-container" class="slimscroll">
+                        @foreach (var res in Model)
+                        {
+                            <div class="row tbl-row">
+                                <div class="col-md-4">
+                                    @res.Name
+                                </div>
+                                <div class="col-md-3">
+                                    @if (res.DateToWithdraw.Subtract(DateTime.Today).TotalDays < 730)
+	                                {
+                                        @:Curto Prazo
+	                                }
+                                    else if (res.DateToWithdraw.Subtract(DateTime.Today).TotalDays < 2555)
+                                    {
+                                        @:Médio Prazo
+                                    }
+                                    else
+                                    {
+                                        @:Longo Prazo
+                                    }
+                                </div>
+                                <div id="val-@(res.ID)" class="col-md-3">
+                                
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="checkbox label checked chkres" id="include-@(res.ID)" onchange="loadChart()">
+                                        <input type="checkbox" id="chkConsiderInfl" data-toggle="checkbox">
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="row tbl-footer" style="height: 10px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.slimscroll').slimScroll({
+        height: 'auto',
+    });
+
+    $("#txInfl").selectpicker({ style: 'btn-primary', menuStyle: 'dropdown-inverse' });
+
+    // chamar um método q retorna todo o conteudo da pagina
+
+    loadChart();
+
+</script>

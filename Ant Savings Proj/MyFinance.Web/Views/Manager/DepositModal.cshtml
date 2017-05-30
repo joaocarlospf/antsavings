@@ -1,0 +1,18 @@
+﻿@model MyFinance.Web.Models.DepositViewModel
+<div id="depositModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h5 class="modal-title">Make a deposit</h5>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("DepositPartial", Model)
+            </div>
+            <div class="modal-footer">
+                <input type="button" onclick="postAndUpdateManager('@Url.Action("Deposit", "Manager")', '#depositForm', '#dashboardContent', '#depositModal');" value="Deposit" class="btn btn-success" />
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>

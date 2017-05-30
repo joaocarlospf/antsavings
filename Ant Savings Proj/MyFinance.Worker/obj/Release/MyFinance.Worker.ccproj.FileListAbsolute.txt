@@ -1,0 +1,2 @@
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Worker\bin\Release\ServiceConfiguration.cscfg
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Worker\bin\Release\ServiceDefinition.csdef

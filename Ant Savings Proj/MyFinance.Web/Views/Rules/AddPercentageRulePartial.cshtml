@@ -1,0 +1,14 @@
+﻿@model  MyFinance.Core.Model.DistributionPercentage
+
+<li id="rule-@(Model.ID)" class="rules-item">
+    <span class="fundo">@(Model.Fund.Name)</span>
+    <span class="objetivo">@(Model.Reserve.Name)</span>
+    <span id="chk-@(Model.ID)" class="checkbox" style="margin-top: 2px">
+        <input type="checkbox" data-toggle="checkbox">
+    </span>
+    <div class="ui-slider" value="@(Model.Percentage)"></div>
+    <span class="porcentagem">
+        @(Model.Percentage.ToString("0.00"))%
+    </span>
+    <span class="btn-remove fui-cross"></span>
+</li>

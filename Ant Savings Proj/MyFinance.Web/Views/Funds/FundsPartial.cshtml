@@ -1,0 +1,64 @@
+﻿@model MyFinance.Web.Models.FundsViewModel
+
+<div id="fundsTable" class="tbl tbl-striped">
+    <div class="row tbl-header" style="font-weight: bold;">
+        <div class="col-md-6">Descrição</div>
+        <div class="col-md-3">Abreviação</div>
+        <div class="col-md-3 text-center">Remover</div>
+    </div>
+    <div style="height: 215px;" class="tbl-line">
+        <div id="data-container" class="slimscroll">
+            @if (Model != null)
+            {
+                foreach (var entry in Model.FundList)
+                {
+                    <div class="row tbl-row">
+                        <div class="col-md-6">@entry.Name</div>
+                        <div class="col-md-3">@entry.NameAbbreviation</div>
+                        <div class="col-md-3 text-center">
+                            <a href="#" onclick="loadPartial('@Url.Action("RemoveFund", "Funds")', { fundId: @entry.ID }, '#dashboardContent'); return false;"><span class="glyphicon glyphicon-remove"></span></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="row tbl-footer" style="height: 10px"></div> 
+</div>
+
+<div class="btn-group">
+    <a type="button" data-toggle="modal" href="#addFundModal" class="btn btn-primary"><span class="ficon-add"></span> Inserir Fundo de Insvestimento</a>
+</div>
+
+<div id="addFundModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h5 class="modal-title">
+                    Insira um Fundo<br />
+                    <small class="text-muted" style="font-size: 0.6em;">Informe aqui os fundos em que você investe</small>
+                </h5>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("AddFundPartial", Model)
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                <input type="button" onclick="postAndUpdateManager('@Url.Action("AddFund", "Funds")', '#addFundForm', '#dashboardContent', '#addFundModal');" value="Adicionar Fundo" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.slimscroll').slimScroll({
+        height: 'auto',
+    });
+
+    $('select').selectpicker({
+        style: 'btn-primary', menuStyle: 'dropdown-inverse'
+    });
+</script>

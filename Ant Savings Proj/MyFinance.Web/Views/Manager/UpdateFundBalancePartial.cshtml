@@ -1,0 +1,28 @@
+﻿@model MyFinance.Web.Models.UpdateBalanceViewModel
+
+@using (Html.BeginForm("UpdateBalance", "Manager", FormMethod.Post, new { id = "updateBalanceForm", @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.SelectedFundId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-9">
+            @Html.DropDownListFor(m => m.SelectedFundId, Model.FundList, htmlAttributes: new { @class = "select-block" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Date, new { @class = "col-md-2 control-label" })
+        <div class="col-md-3">
+            @Html.TextBoxFor(m => m.Date, new { @class = "form-control datepicker" })
+        </div>
+    </div>
+    if (Model.Value == 0M)
+    {
+        Model.Value = 0.00M;
+    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.Value, new { @class = "col-md-2 control-label" })
+        <div class="col-md-5">
+            @Html.TextBoxFor(m => m.Value, new { @class = "form-control value-mask" })
+        </div>
+    </div>
+}

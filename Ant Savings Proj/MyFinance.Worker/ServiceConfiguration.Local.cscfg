@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="MyFinance.Worker" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
+  <Role name="MyFinance.WorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="jcpf" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEEnCoDuVBnqIQxk5E60+B9YwDQYJKoZIhvcNAQEBBQAEggEAIFI2NZhLy08nSp13Sj7eV+st1qmRSMzlGfcr0zLBLKtdS2wokL1peXGYagaWzVRe2Xn5wASp01/AxQxHC/QnMDtXFHGO+b4HH/aT/BOj6jaMZXnLA2nA6VjosbMRe1+QIXUe/DHdHwtWfuH8PHBc4UK6KbWlKoR0uFo/b1E8Z+HJWNxXSGwVjEFaWr8LqA5RyPTMhySH/Fk9Z4GIsvd8uy0HYwDymGxoV/naH4N8gJNNrpn7MY/zIl5Sa/gLBC7/ppDwIvM1ZXdVih8bhO9XFdJyz2K5FhRXnhMzq7pWZAl6WNtv30uEiR6IqArMPFBKOkQ1RjbTzG0C/0vnLTOCKDAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECNr77kuQcEdCgBBNX6jH12G6K/GPZSaNTHit" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-05-28T23:59:59.0000000-03:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="767E3CA7F10166A3EC1C4837589387E49AE1980B" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>
