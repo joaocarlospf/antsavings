@@ -1,0 +1,93 @@
+﻿@model MyFinance.Web.Models.ReserveViewModel
+
+<div id="reservesTable" class="tbl tbl-striped">
+    <div class="row tbl-header" style="font-weight: bold;">
+        <div class="col-md-3">Objetivo</div>
+        <div class="col-md-2">Abreviação</div>
+        <div class="col-md-2">Valor (R$)</div>
+        <div class="col-md-3">Data p/ Resgate</div>
+        <div class="col-md-2 text-center">Remover</div>
+    </div>
+    <div style="height: 215px;" class="tbl-line">
+        <div id="data-container" class="slimscroll">
+            @if (Model != null)
+            {
+                foreach (var entry in Model.ReserveList)
+                {
+                    <div class="row tbl-row">
+                        <div class="col-md-3">
+                            @entry.Name
+                        </div>
+                        <div class="col-md-2">
+                            @entry.NameAbbreviation
+                        </div>
+                        <div class="col-md-2">
+                            @entry.FinalExpectedValue.ToString("#,0.00")
+                        </div>
+                        <div class="col-md-3">
+                            @entry.DateToWithdraw.ToShortDateString()
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="#" onclick="loadPartial('@Url.Action("RemoveReserve", "Reserve")', { reserveId: @entry.ID }, '#dashboardContent'); return false;"><span class="glyphicon glyphicon-remove"></span></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="row tbl-footer" style="height: 10px"></div> 
+</div>
+
+<div class="btn-group">
+    <a type="button" data-toggle="modal" href="#addReserveModal" class="btn btn-primary"><span class="ficon-add"></span> Inserir Objetivo</a>
+</div>
+
+<div id="addReserveModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h5 class="modal-title">
+                    Insira um Objetivo<br />
+                    <small class="text-muted" style="font-size: 0.6em;">Se planeje organizando seus objetivos</small>
+                    <select id="suggestionList" name="info" class="mbn select-block">
+                        <option value="-1">Veja aqui algumas sugestões !</option>
+                        <optgroup label="Curto Prazo">
+                            <option value="0">Vestuário</option>
+                            <option value="1">Material Escolar</option>
+                            <option value="2">IPVA + Seguro do Carro</option>
+                        </optgroup>
+                        <optgroup label="Médio Prazo">
+                            <option value="3">IPTU</option>
+                            <option value="4">Troca do Carro</option>
+                            <option value="5">Próxima Viagem</option>
+                            <option value="6">Reforma da Casa</option>
+                        </optgroup>
+                        <optgroup label="Longo Prazo">
+                            <option value="7">Meu Primeiro Milhão</option>
+                            <option value="8">Aposentadoria</option>
+                            <option value="9">Compra de Imóvel</option>
+                        </optgroup>
+                    </select>
+                </h5>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("AddReservePartial", Model)
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                <input type="button" onclick="postAndUpdateManager('@Url.Action("AddReserve", "Reserve")', '#addReserveForm', '#dashboardContent', '#addReserveModal');" value="Adicionar Objetivo" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.slimscroll').slimScroll({
+        height: 'auto',
+    });
+
+    $('select').selectpicker({
+        style: 'btn-primary', menuStyle: 'dropdown-inverse'
+    });
+</script>

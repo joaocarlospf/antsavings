@@ -1,0 +1,124 @@
+﻿@model MyFinance.Web.Models.LoginViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Ant Savings</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-body-outer">
+            <div class="header-body">
+                <a href="/">
+                    <img class="logo" src="../images/ant-beta.png" alt="Ant Savings" title="Ant Savings" />
+                </a>
+                
+                <div class="header-login-menu">
+                    <div class="ant-login">
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ActionLink("Olá, " + User.Identity.GetUserName() + " !", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage", style = "vertical-align: middle;" })
+                                <button type="submit" class="btn-entrar" title="Sair" style="margin-left: 15px">SAIR</button>
+                            }
+                        }
+                        else
+                        {
+                            using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.TextBoxFor(m => m.UserName, new { type = "text", placeholder = "Email" })
+                                @Html.TextBoxFor(m => m.Password, new { @class = "senha", type = "password", placeholder = "Senha" })
+                                <button type="submit" class="btn-entrar" title="Entrar">ENTRAR</button>
+                            }
+                            <a href="#" title="Esqueceu sua senha?">Esqueceu sua senha?</a>
+                        }
+                    </div>
+                    <ul class="menu">
+                        <li class="icon-dashboard">
+                            <a href="#" title="Dashboard">
+                                @Html.ActionLink("DASHBOARD", "Index", "Dashboard")
+                            </a>
+                        </li>
+                        <li class="icon-feedback">
+                            <a href="#" title="Opine">
+                                @Html.ActionLink("OPINE", "Contact", "Home")
+                            </a>
+                        </li>
+                        <li class="icon-blog">
+                            <a href="https://facebook.com/antsavings" title="Blog">
+                                BLOG
+                            </a>
+                        </li>
+                        <li class="icon-criar-conta">
+                            @Html.ActionLink("CRIAR CONTA", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="ant-body">
+        @RenderBody()
+    </div>
+
+    <footer class="rodape">
+        <ul class="menu">
+            <li>
+                <a href="#">
+                    DASHBOARD
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    FEEDBACK
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    BLOG
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    CRIAR CONTA
+                </a>
+            </li>
+        </ul>
+
+        <ul class="social">
+            <li>
+                <img src="../images/icon-social-facebook.png" alt="Facebook">
+            </li>
+
+            <li>
+                <img src="../images/icon-social-twitter.png" alt="Twitter">
+            </li>
+
+            <li>
+                <img src="../images/icon-social-google-plus.png" alt="Google Plus">
+            </li>
+
+            <li>
+                <img src="../images/icon-social-email.png" alt="Email">
+            </li>
+        </ul>
+
+        <p>
+            © 2014 - Todos os direitos reservados.
+        </p>
+    </footer>
+</body>
+</html>

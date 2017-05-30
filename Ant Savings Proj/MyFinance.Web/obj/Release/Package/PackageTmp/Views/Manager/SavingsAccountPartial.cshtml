@@ -1,0 +1,94 @@
+﻿@model MyFinance.Web.Models.TransactionViewModel
+<div class="frame">
+    <div class="row ">
+        <div class="col-md-3">
+            @Html.Label("Filtrar por fundo:", new { @class = "label" })
+            @Html.DropDownList("FundList", Model.FundList, new { id = "fundList", @class = "select-block" })
+        </div>
+        <div class="col-md-3">
+            @Html.Label("Filtar por objetivo:", new { @class = "label" })
+            @Html.DropDownList("ReserveList", Model.ReserveList, new { id = "reserveList", @class = "select-block" })
+        </div>
+    </div>
+</div>
+<br />
+<div id="transactionList">
+    @Html.Partial("TransactionListPartial", Model.OperationList)
+</div>
+<div class="row tbl-footer">
+    <div class="col-md-2 col-md-offset-8" style="padding-left: 24px;">
+        Balance:
+    </div>
+    <div class="col-md-2 text-right @(Model.Balance > 0 ? "text-info" : "text-danger")" id="balance">
+        @Model.Balance.ToString("#,0.00")
+    </div>
+</div>
+<div class="btn-group btn-group-justified">
+    <a type="button" data-toggle="modal" href="#depositModal" class="btn btn-primary"><span class="ficon-deposit"></span> Depositar</a>
+    <a type="button" data-toggle="modal" href="#depositModal" class="btn btn-primary"><span class="ficon-transfer"></span> Transferir</a>
+    <a type="button" data-toggle="modal" href="#withdrawModal" class="btn btn-primary"><span class="ficon-withdraw"></span> Resgatar</a>
+    <a type="button" data-toggle="modal" href="#updateBalanceModal" class="btn btn-primary"><span class="ficon-balance"></span> Atualizar Saldo</a>
+    <a data-toggle="modal" class="btn btn-primary" onclick="postAndUpdateManager('@Url.Action("Undo", "Manager")', '', '#dashboardContent', '');"><span class="ficon-undo"></span> Desfazer</a>
+</div>
+
+<div id="depositModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h5 class="modal-title">Faça um depósito!</h5>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("DepositPartial", Model.DepositViewModel)
+            </div>
+            <div class="modal-footer">
+                <input type="button" onclick="postAndUpdateManager('@Url.Action("Deposit", "Manager")', '#depositForm', '#dashboardContent', '#depositModal');" value="Deposit" class="btn btn-success" />
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="withdrawModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h5 class="modal-title" style="line-height: 1;">Resgatar <br /><small class="text-muted" style="font-size: 0.6em;">Você está certo disso!?</small></h5>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("WithdrawPartial", Model.WithdrawViewModel)
+            </div>
+            <div class="modal-footer">
+                <input type="button" onclick="postAndUpdateManager('@Url.Action("Withdraw", "Manager")', '#withdrawForm', '#dashboardContent', '#withdrawModal');" value="Withdraw" class="btn btn-success" />
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="updateBalanceModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h5 class="modal-title" style="line-height: 1;">
+                    Atualize seu saldo<br />
+                <small class="text-muted" style="font-size: 0.6em;">Informe o saldo atual do fundo escolhido para atualizar os seus rendimentos.</small></h5>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("UpdateFundBalancePartial", Model.UpdateBalanceViewModel)
+            </div>
+            <div class="modal-footer">
+                <input type="button" onclick="postAndUpdateManager('@Url.Action("UpdateBalance", "Manager")', '#updateBalanceForm', '#dashboardContent', '#updateBalanceModal');" value="Update Balance" class="btn btn-success" />
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("select").selectpicker({ style: 'btn-primary', menuStyle: 'dropdown-inverse' });
+    });
+</script>

@@ -1,0 +1,36 @@
+﻿@model MyFinance.Web.Models.DistributionRuleViewModel
+
+@Html.Hidden("hiddenId", Model.Rule.Id, new { id = "ruleId" })
+<div class="form-group">
+    @Html.Label("Nome", new { @class = "col-md-3 control-label" })
+    <div class="col-md-9">
+        @Html.TextBox("txbNome", Model.Rule.Name, new { @class = "form-control", id = "ruleName" })
+    </div>
+</div>
+
+<div class="mdl-deposit-rules">
+    
+    <div class="form-group">
+        <div class="col-md-4">
+            <label for="fundos" class="label">Fundos:</label>
+            @Html.DropDownList("selectFund", Model.Funds, new { id = "fundos", @class = "select-block" })
+        </div>
+        <div class="col-md-4">
+            <label for="objetivos" class="label">Objetivos:</label>
+            @Html.DropDownList("reserveSelect", Model.Reserves, new { id = "objetivos", @class = "select-block" })
+        </div>  
+        <div class="col-md-4">
+            <button id="btnAdicionarRegra" class="btn btn-primary btn-wide" style="margin-top: 30px;"><span class="ficon-add"></span> Adicionar</button>
+        </div>
+    </div>
+    <p class="error-msg"></p>
+    
+    <!-- Lista de Regras -->
+    <ul class="rules-list">
+        @foreach (var perc in Model.Rule.DistributionPercentages)
+        {
+            @Html.Partial("AddPercentageRulePartial", perc)
+        }
+    </ul>
+</div>
+

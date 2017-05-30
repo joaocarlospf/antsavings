@@ -1,0 +1,142 @@
+﻿@model MyFinance.Web.Models.DepositViewModel
+
+@using (Html.BeginForm("Deposit", "Manager", FormMethod.Post, new { id = "depositForm", @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Origin, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Origin, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SelectedDistriutionRuleId, new { @class = "col-md-4 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(m => m.SelectedDistriutionRuleId, Model.DistributionRuleList, new { id = "depositRuleSelect", @class = "select-block" })
+        </div>
+    </div>
+    <div id="combos">
+        <div class="form-group">
+            @Html.LabelFor(m => m.SelectedFundId, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(m => m.SelectedFundId, Model.FundList, new { id = "fundSelect", @class = "select-block" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.SelectedReserveId, new { @class = "col-md-4 control-label" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(m => m.SelectedReserveId, Model.ReserveList, new { @class = "select-block" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Date, new { @class = "col-md-4 control-label" })
+        <div class="col-md-3">
+            @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control datepicker" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Value, new { @class = "col-md-4 control-label" })
+        <div class="col-md-5 input-group">
+            @{
+                if (Model.Value == 0M)
+                {
+                    Model.Value = 0.00M;
+                }
+            }
+            <span class="input-group-addon">$</span>
+            @Html.TextBoxFor(m => m.Value, new { @class = "form-control value-mask" })
+        </div>
+    </div>
+
+    <div id="fbList">
+        @for (int i = 0; i < Model.fundsBalanceList.Count; i++)
+        {
+            <div id="fb@(Model.fundsBalanceList[i].FundId)" style="display: none" class="form-group">
+                @Html.Label("Saldo " + Model.fundsBalanceList[i].FundName, new { @class = "col-md-4 control-label" })
+                <div class="col-md-5">
+                    @{
+                    if (Model.fundsBalanceList[i].Value == 0M || Model.fundsBalanceList[i].Value == null)
+                    {
+                        Model.fundsBalanceList[i].Value = 0.00M;
+                    }
+                    }
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        @Html.TextBoxFor(m => m.fundsBalanceList[i].Value, new { @class = "form-control value-mask" })
+                    </div>
+                    @Html.HiddenFor(m => m.fundsBalanceList[i].FundId)
+                    @Html.HiddenFor(m => m.fundsBalanceList[i].CurrentBalance)
+                    <p class="help-block">Saldo antes do depósito.</p>
+                </div>
+                <div class="col-md-3" style="padding-top: 10px; padding-left: 0px">
+                    <label id="chklabel@(i)" class="checkbox">
+                        <input type="checkbox" id="chkinput@(i)" data-toggle="checkbox" onchange="chkInalteradoChange('@i')">
+                        Inalterado
+                    </label>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $('#depositRuleSelect').on("change", depositSelectChange);
+        $('#fundSelect').on("change", fundSelectChange);
+    });
+
+    function chkInalteradoChange(id) {
+        if ($('#chklabel' + id).hasClass('checked')) {
+            balVal = $('#fundsBalanceList_' + id + '__CurrentBalance').val();
+            $('#fundsBalanceList_' + id + '__Value').val(balVal);
+            $('#fundsBalanceList_' + id + '__Value').attr('disabled', 'disabled');
+        }
+        else
+        {
+            $('#fundsBalanceList_' + id + '__Value').val('0,00');
+            $('#fundsBalanceList_' + id + '__Value').removeAttr('disabled');
+        }
+    }
+
+    function depositSelectChange() {
+
+        if ($('#depositRuleSelect').val() == '-1')
+            $('#combos').slideDown();
+        else $('#combos').slideUp();
+
+        $.post('@Url.Action("GetFundsFromDepositRule", "Manager")',
+            { depositRuleId: $('#depositRuleSelect').val() },
+            function (data) {
+                $('#fbList').children().each(function (i) {
+                    divId = this.id;
+                    slideDown = false;
+                    jQuery.each(data, function () {
+                        if ("fb" + this == divId)
+                            slideDown = true;
+                    });
+                    if (slideDown) $(this).slideDown();
+                    else {
+                        $('#fundsBalanceList_' + i + '__Value').val('');
+                        $(this).slideUp();
+                    }
+                });
+            });
+    }
+
+    function fundSelectChange() {
+
+        $('#fbList').children().each(function (i) {
+            if ('fb' + $('#fundSelect').val() == this.id)
+            {
+                $(this).slideDown();
+                $('#fundsBalanceList_' + i + '__Value').val('0,00');
+            }
+            else {
+                $('#fundsBalanceList_' + i + '__Value').val('');
+                $(this).slideUp();
+
+            }
+        });
+
+    }
+</script>

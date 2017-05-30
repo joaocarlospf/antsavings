@@ -1,0 +1,41 @@
+﻿@model MyFinance.Web.Models.PercentageRuleViewModel
+
+<table id="rulesTable">
+    <colgroup>
+        <col />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Fund</th>
+            <th>Reserve</th>
+            <th>Percentage</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var entry in Model.DistributionPercentageList)
+            {
+                <tr>
+                    <td>
+                        @(entry.Fund == null ? "-" : entry.Fund.Name)
+                    </td>
+                    <td>
+                        @entry.Reserve.Name
+                    </td>
+                    <td>
+                        @entry.Percentage
+                    </td>
+                    <td>
+                        <a type="button" href="#" onclick="loadPartial('@Url.Action("RemovePercentageRule", "Rules")', { percentageRuleId: @entry.ID }, '#setRulesPercentage');" class="btn btn-success">x</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<h3>Add a percentage rule.</h3>
+@Html.Partial("AddPercentageRulePartial", Model)
+<input type="button" onclick="postAndUpdate('@Url.Action("AddPercentageRule", "Rules")', '#addPercentageRuleForm', '#setRulesPercentage', '#addFundModal');" value="Add Percentage Rule" class="btn btn-success" />

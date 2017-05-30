@@ -1,0 +1,58 @@
+﻿@model MyFinance.Web.Models.RulesViewModel
+
+<div id="rulesTable" class="tbl tbl-striped">
+    <div class="row tbl-header" style="font-weight: bold;">
+        <div class="col-md-10">Regra</div>
+        <div class="col-md-2">Remover</div>
+    </div>
+    <div style="height: 215px;" class="tbl-line">
+        <div id="data-container" class="slimscroll">
+            @if (Model != null)
+            {
+                foreach (var entry in Model.RuleList)
+                {
+                    <div class="row tbl-row">
+                        <div class="col-md-10">
+                            <a href="#" onclick="getRule('@Url.Action("GetRule", "Rules")', { ruleId: @entry.Id }, '#ruleModal'); return false;">@entry.Name</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="#" onclick="loadPartial('@Url.Action("RemoveRule", "Rules")', { ruleId: @entry.Id }, '#dashboardContent'); return false;"><span class="glyphicon glyphicon-remove"></span></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="row tbl-footer" style="height: 10px"></div> 
+</div>
+
+<div class="btn-group">
+    <a type="button" id="newRule" href="#" class="btn btn-primary"><span class="ficon-add"></span> Inserir Regra de Depósito</a>
+</div>
+
+
+<div id="addRuleModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h5 class="modal-title">
+                    Configure sua regra de distribuição de depósitos<br />
+                    <small class="text-muted" style="font-size: 0.6em;">Diga como você quer distribuir seu dinheiro ao realizar um depósito</small>
+                </h5>
+            </div>
+            <div id="ruleModal" class="modal-body">
+                @Html.Partial("AddRulePartial", Model.RuleViewModel)
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                <input type="button" id="saveRule" value="Salvar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/scripts/viewscripts/Dashboard/rule-editor.js"></script>
+<script>
+    $('.slimscroll').slimScroll({ height: 'auto' });
+</script>
