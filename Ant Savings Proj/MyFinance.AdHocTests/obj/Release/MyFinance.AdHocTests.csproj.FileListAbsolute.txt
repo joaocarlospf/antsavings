@@ -1,0 +1,10 @@
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\bin\Release\MyFinance.AdHocTests.exe.config
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\obj\Release\MyFinance.AdHocTests.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\bin\Release\MyFinance.AdHocTests.exe
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\bin\Release\MyFinance.AdHocTests.pdb
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\bin\Release\MyFinance.Core.dll
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\bin\Release\EntityFramework.dll
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\bin\Release\MyFinance.Core.pdb
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\bin\Release\EntityFramework.xml
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\obj\Release\MyFinance.AdHocTests.exe
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.AdHocTests\obj\Release\MyFinance.AdHocTests.pdb

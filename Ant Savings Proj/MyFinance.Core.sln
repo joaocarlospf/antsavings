@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFinance.Core", "MyFinance.Core\MyFinance.Core.csproj", "{6495EE59-F4FA-4582-B9A8-392A1D79101E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFinance.Forms", "MyFinance.Forms\MyFinance.Forms.csproj", "{2419FA02-C232-46F3-A023-03F7AF8255EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFinance.Web", "MyFinance.Web\MyFinance.Web.csproj", "{1CFB6F2B-54D8-4C4B-B35B-CE4B29A67076}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFinance.AdHocTests", "MyFinance.AdHocTests\MyFinance.AdHocTests.csproj", "{726BC456-A25D-4CC1-962A-B297A7523A5E}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "MyFinance.Worker", "MyFinance.Worker\MyFinance.Worker.ccproj", "{69FF9E39-4861-4143-BD57-13065E58D31B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFinance.WorkerRole", "MyFinance.WorkerRole\MyFinance.WorkerRole.csproj", "{9A9BC4B7-A029-43CA-A42D-981611FCFD33}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://joaocpflorencio.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MyFinance.Core\\MyFinance.Core.csproj
+		SccProjectName1 = MyFinance.Core
+		SccLocalPath1 = MyFinance.Core
+		SccProjectUniqueName2 = MyFinance.Forms\\MyFinance.Forms.csproj
+		SccProjectName2 = MyFinance.Forms
+		SccLocalPath2 = MyFinance.Forms
+		SccProjectUniqueName3 = MyFinance.Web\\MyFinance.Web.csproj
+		SccProjectName3 = MyFinance.Web
+		SccLocalPath3 = MyFinance.Web
+		SccProjectUniqueName4 = MyFinance.AdHocTests\\MyFinance.AdHocTests.csproj
+		SccProjectName4 = MyFinance.AdHocTests
+		SccLocalPath4 = MyFinance.AdHocTests
+		SccProjectUniqueName5 = MyFinance.Worker\\MyFinance.Worker.ccproj
+		SccProjectName5 = MyFinance.Worker
+		SccLocalPath5 = MyFinance.Worker
+		SccProjectUniqueName6 = MyFinance.WorkerRole\\MyFinance.WorkerRole.csproj
+		SccProjectName6 = MyFinance.WorkerRole
+		SccLocalPath6 = MyFinance.WorkerRole
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6495EE59-F4FA-4582-B9A8-392A1D79101E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6495EE59-F4FA-4582-B9A8-392A1D79101E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6495EE59-F4FA-4582-B9A8-392A1D79101E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6495EE59-F4FA-4582-B9A8-392A1D79101E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2419FA02-C232-46F3-A023-03F7AF8255EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2419FA02-C232-46F3-A023-03F7AF8255EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2419FA02-C232-46F3-A023-03F7AF8255EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2419FA02-C232-46F3-A023-03F7AF8255EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CFB6F2B-54D8-4C4B-B35B-CE4B29A67076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFB6F2B-54D8-4C4B-B35B-CE4B29A67076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFB6F2B-54D8-4C4B-B35B-CE4B29A67076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFB6F2B-54D8-4C4B-B35B-CE4B29A67076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726BC456-A25D-4CC1-962A-B297A7523A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726BC456-A25D-4CC1-962A-B297A7523A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726BC456-A25D-4CC1-962A-B297A7523A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726BC456-A25D-4CC1-962A-B297A7523A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69FF9E39-4861-4143-BD57-13065E58D31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69FF9E39-4861-4143-BD57-13065E58D31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69FF9E39-4861-4143-BD57-13065E58D31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69FF9E39-4861-4143-BD57-13065E58D31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9BC4B7-A029-43CA-A42D-981611FCFD33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9BC4B7-A029-43CA-A42D-981611FCFD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9BC4B7-A029-43CA-A42D-981611FCFD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9BC4B7-A029-43CA-A42D-981611FCFD33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
