@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CFB6F2B-54D8-4C4B-B35B-CE4B29A67076}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyFinance.Web</RootNamespace>
+    <AssemblyName>MyFinance.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\FundsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\ReserveController.cs" />
+    <Compile Include="Controllers\RulesController.cs" />
+    <Compile Include="Controllers\SimulatorController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\HtmlPrefixScopeExtensions.cs" />
+    <Compile Include="Migrations\201402242104433_InitialCreate.cs" />
+    <Compile Include="Migrations\201402242104433_InitialCreate.Designer.cs">
+      <DependentUpon>201402242104433_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405051709490_NewFieldsForUser.cs" />
+    <Compile Include="Migrations\201405051709490_NewFieldsForUser.Designer.cs">
+      <DependentUpon>201405051709490_NewFieldsForUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405071915056_correct_login.cs" />
+    <Compile Include="Migrations\201405071915056_correct_login.Designer.cs">
+      <DependentUpon>201405071915056_correct_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\PercentageRuleViewModel.cs" />
+    <Compile Include="Models\DepositViewModel.cs" />
+    <Compile Include="Models\FundsViewModel.cs" />
+    <Compile Include="Models\ReserveViewModel.cs" />
+    <Compile Include="Models\RulesViewModel.cs" />
+    <Compile Include="Models\SimulatorViewModel.cs" />
+    <Compile Include="Models\TransactionViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\UpdateBalanceViewModel.cs" />
+    <Compile Include="Models\UpdateFundToDepositViewModel.cs" />
+    <Compile Include="Models\WithdrawViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flat-ui.css" />
+    <Content Include="Content\flexslider.css" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\MySavings.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\home\din_black.svg" />
+    <Content Include="fonts\home\din_light.svg" />
+    <Content Include="fonts\home\din_medium.svg" />
+    <Content Include="fonts\Flat-UI-Icons.dev.svg" />
+    <Content Include="fonts\Flat-UI-Icons.svg" />
+    <Content Include="fonts\home\flexslider-icon.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\lato\lato-black-webfont.svg" />
+    <Content Include="fonts\lato\lato-bold-webfont.svg" />
+    <Content Include="fonts\lato\lato-bolditalic-webfont.svg" />
+    <Content Include="fonts\lato\lato-italic-webfont.svg" />
+    <Content Include="fonts\lato\lato-light-webfont.svg" />
+    <Content Include="fonts\lato\lato-regular-webfont.svg" />
+    <Content Include="fonts\home\ubuntu-medium.svg" />
+    <Content Include="fonts\home\ubuntu-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\ant-beta.png" />
+    <Content Include="images\ant-savings.png" />
+    <Content Include="images\ant.png" />
+    <Content Include="images\arrow-left.png" />
+    <Content Include="images\arrow-right.png" />
+    <Content Include="images\banner-ant-savings-dashboard.png" />
+    <Content Include="images\banner-nao-perca-mais-o-sono-use-o-tempo-ao-seu-favor-planeje-suas-financas.jpg" />
+    <Content Include="images\banner-saiba-como-economizar-para-alcancar-seus-objetivos.jpg" />
+    <Content Include="images\banner_01.jpg" />
+    <Content Include="images\bg-header-top.jpg" />
+    <Content Include="images\bg-list-vantagens.png" />
+    <Content Include="images\bg-slider-2.jpg" />
+    <Content Include="images\bg-social-icons.png" />
+    <Content Include="images\bg-txt-criar-conta.png" />
+    <Content Include="images\demo-1.png" />
+    <Content Include="images\demo-2.png" />
+    <Content Include="images\demo-3.png" />
+    <Content Include="images\demo\browser-2x.png" />
+    <Content Include="images\demo\browser-author.jpg" />
+    <Content Include="images\demo\browser-pic-1.jpg" />
+    <Content Include="images\demo\browser-pic-2.jpg" />
+    <Content Include="images\demo\browser-pic-3.jpg" />
+    <Content Include="images\demo\browser-pic-4.jpg" />
+    <Content Include="images\demo\browser-pic-5.jpg" />
+    <Content Include="images\demo\browser-pic-6.jpg" />
+    <Content Include="images\demo\browser.png" />
+    <Content Include="images\demo\html-icon.png" />
+    <Content Include="images\demo\logo-mask-2x.png" />
+    <Content Include="images\demo\logo-mask.png" />
+    <Content Include="images\demo\video.jpg" />
+    <Content Include="images\exaple-image.jpg" />
+    <Content Include="images\external.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\footer\logo.png" />
+    <Content Include="images\icon-acompanhar-blue.png" />
+    <Content Include="images\icon-acompanhar.png" />
+    <Content Include="images\icon-big-email.png" />
+    <Content Include="images\icon-big-nome.png" />
+    <Content Include="images\icon-big-senha.png" />
+    <Content Include="images\icon-blog.png" />
+    <Content Include="images\icon-criar-conta.png" />
+    <Content Include="images\icon-dashboard.png" />
+    <Content Include="images\icon-destino-blue.png" />
+    <Content Include="images\icon-dinheiro-blue.png" />
+    <Content Include="images\icon-email-hover.png" />
+    <Content Include="images\icon-email.png" />
+    <Content Include="images\icon-feedback.png" />
+    <Content Include="images\icon-login.png" />
+    <Content Include="images\icon-planejar.png" />
+    <Content Include="images\icon-senha-hover.png" />
+    <Content Include="images\icon-senha.png" />
+    <Content Include="images\icon-separar-blue.png" />
+    <Content Include="images\icon-separar.png" />
+    <Content Include="images\icon-social-email.png" />
+    <Content Include="images\icon-social-facebook.png" />
+    <Content Include="images\icon-social-google-plus.png" />
+    <Content Include="images\icon-social-twitter.png" />
+    <Content Include="images\icons\png\Book.png" />
+    <Content Include="images\icons\png\Calendar.png" />
+    <Content Include="images\icons\png\Chat.png" />
+    <Content Include="images\icons\png\Clipboard.png" />
+    <Content Include="images\icons\png\Compas.png" />
+    <Content Include="images\icons\png\Gift-Box.png" />
+    <Content Include="images\icons\png\Infinity-Loop.png" />
+    <Content Include="images\icons\png\Mail.png" />
+    <Content Include="images\icons\png\Map.png" />
+    <Content Include="images\icons\png\Pensils.png" />
+    <Content Include="images\icons\png\Pocket.png" />
+    <Content Include="images\icons\png\Retina-Ready.png" />
+    <Content Include="images\icons\png\Toilet-Paper.png" />
+    <Content Include="images\icons\png\Watches.png" />
+    <Content Include="images\icons\svg\book.svg" />
+    <Content Include="images\icons\svg\calendar.svg" />
+    <Content Include="images\icons\svg\chat.svg" />
+    <Content Include="images\icons\svg\clipboard.svg" />
+    <Content Include="images\icons\svg\clocks.svg" />
+    <Content Include="images\icons\svg\compas.svg" />
+    <Content Include="images\icons\svg\gift-box.svg" />
+    <Content Include="images\icons\svg\loop.svg" />
+    <Content Include="images\icons\svg\mail.svg" />
+    <Content Include="images\icons\svg\map.svg" />
+    <Content Include="images\icons\svg\paper-bag.svg" />
+    <Content Include="images\icons\svg\pencils.svg" />
+    <Content Include="images\icons\svg\retina.svg" />
+    <Content Include="images\icons\svg\toilet-paper.svg" />
+    <Content Include="images\login\icon.png" />
+    <Content Include="images\login\imac-2x.png" />
+    <Content Include="images\login\imac.png" />
+    <Content Include="images\switch\mask-square.png" />
+    <Content Include="images\switch\mask.png" />
+    <Content Include="images\tile\ribbon-2x.png" />
+    <Content Include="images\tile\ribbon.png" />
+    <Content Include="images\todo\done-2x.png" />
+    <Content Include="images\todo\done.png" />
+    <Content Include="images\todo\search-2x.png" />
+    <Content Include="images\todo\search.png" />
+    <Content Include="images\todo\todo-2x.png" />
+    <Content Include="images\todo\todo.png" />
+    <Content Include="images\video\fullscreen-2x.png" />
+    <Content Include="images\video\fullscreen.png" />
+    <Content Include="images\video\pause-2x.png" />
+    <Content Include="images\video\pause.png" />
+    <Content Include="images\video\play-2x.png" />
+    <Content Include="images\video\play.png" />
+    <Content Include="images\video\poster.jpg" />
+    <Content Include="images\video\volume-full-2x.png" />
+    <Content Include="images\video\volume-full.png" />
+    <Content Include="images\video\volume-off-2x.png" />
+    <Content Include="images\video\volume-off.png" />
+    <Content Include="Scripts\application.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-modal.js" />
+    <Content Include="Scripts\bootstrap-select.js" />
+    <Content Include="Scripts\bootstrap-switch.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\Flat-UI-Icons.eot" />
+    <Content Include="fonts\Flat-UI-Icons.ttf" />
+    <Content Include="fonts\Flat-UI-Icons.woff" />
+    <Content Include="fonts\icomoon-session.json" />
+    <Content Include="fonts\lato\lato-black-webfont.eot" />
+    <Content Include="fonts\lato\lato-black-webfont.ttf" />
+    <Content Include="fonts\lato\lato-black-webfont.woff" />
+    <Content Include="fonts\lato\lato-bold-webfont.eot" />
+    <Content Include="fonts\lato\lato-bold-webfont.ttf" />
+    <Content Include="fonts\lato\lato-bold-webfont.woff" />
+    <Content Include="fonts\lato\lato-bolditalic-webfont.eot" />
+    <Content Include="fonts\lato\lato-bolditalic-webfont.ttf" />
+    <Content Include="fonts\lato\lato-bolditalic-webfont.woff" />
+    <Content Include="fonts\lato\lato-italic-webfont.eot" />
+    <Content Include="fonts\lato\lato-italic-webfont.ttf" />
+    <Content Include="fonts\lato\lato-italic-webfont.woff" />
+    <Content Include="fonts\lato\lato-light-webfont.eot" />
+    <Content Include="fonts\lato\lato-light-webfont.ttf" />
+    <Content Include="fonts\lato\lato-light-webfont.woff" />
+    <Content Include="fonts\lato\lato-regular-webfont.eot" />
+    <Content Include="fonts\lato\lato-regular-webfont.ttf" />
+    <Content Include="fonts\lato\lato-regular-webfont.woff" />
+    <Content Include="fonts\home\din_black.eot" />
+    <Content Include="fonts\home\din_black.ttf" />
+    <Content Include="fonts\home\din_black.woff" />
+    <Content Include="fonts\home\din_light.eot" />
+    <Content Include="fonts\home\din_light.ttf" />
+    <Content Include="fonts\home\din_light.woff" />
+    <Content Include="fonts\home\din_medium.eot" />
+    <Content Include="fonts\home\din_medium.ttf" />
+    <Content Include="fonts\home\din_medium.woff" />
+    <Content Include="fonts\home\flexslider-icon.eot" />
+    <Content Include="fonts\home\flexslider-icon.ttf" />
+    <Content Include="fonts\home\flexslider-icon.woff" />
+    <Content Include="fonts\home\ubuntu-medium.eot" />
+    <Content Include="fonts\home\ubuntu-medium.ttf" />
+    <Content Include="fonts\home\ubuntu-medium.woff" />
+    <Content Include="fonts\home\ubuntu-regular.eot" />
+    <Content Include="fonts\home\ubuntu-regular.ttf" />
+    <Content Include="fonts\home\ubuntu-regular.woff" />
+    <None Include="Properties\PublishProfiles\amazon.pubxml" />
+    <None Include="Properties\PublishProfiles\antsavings.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\flatui-checkbox.js" />
+    <Content Include="Scripts\flatui-radio.js" />
+    <Content Include="Scripts\holder.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\jquery.placeholder.js" />
+    <Content Include="Scripts\jquery.slimscroll.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\jquery.stacktable.js" />
+    <Content Include="Scripts\jquery.tagsinput.js" />
+    <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\viewscripts\Dashboard\Index.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\viewscripts\Dashboard\rule-editor.js" />
+    <Content Include="Scripts\viewscripts\Home\scripts.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Manager\SavingsAccountPartial.cshtml" />
+    <Content Include="Views\Manager\DepositPartial.cshtml" />
+    <Content Include="Views\Manager\WithdrawPartial.cshtml" />
+    <Content Include="Views\Manager\UpdateFundBalancePartial.cshtml" />
+    <Content Include="Views\Rules\RulesPartial.cshtml" />
+    <Content Include="Views\Manager\TransactionListPartial.cshtml" />
+    <Content Include="Views\Funds\FundsPartial.cshtml" />
+    <Content Include="Views\Reserve\ReservesPartial.cshtml" />
+    <Content Include="Views\Funds\AddFundPartial.cshtml" />
+    <Content Include="Views\Reserve\AddReservePartial.cshtml" />
+    <Content Include="Views\Rules\AddRulePartial.cshtml" />
+    <Content Include="Views\Rules\RulesPercentagePartial.cshtml" />
+    <Content Include="Views\Rules\AddPercentageRulePartial.cshtml" />
+    <Content Include="Views\Manager\DepositModal.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Simulator\SimulatorPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyFinance.Core\MyFinance.Core.csproj">
+      <Project>{6495ee59-f4fa-4582-b9a8-392a1d79101e}</Project>
+      <Name>MyFinance.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201402242104433_InitialCreate.resx">
+      <DependentUpon>201402242104433_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405051709490_NewFieldsForUser.resx">
+      <DependentUpon>201405051709490_NewFieldsForUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405071915056_correct_login.resx">
+      <DependentUpon>201405071915056_correct_login.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50983</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13590/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

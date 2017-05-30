@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="antsavings" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Carlos\\Desktop\\Ant\ Savings\\MyFinance\.Web\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Carlos\\Desktop\\Ant\ Savings\\MyFinance\.Web\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="mysavings-Web.config Connection String" description="" value="Data Source=xjf47ugu10.database.windows.net;Initial Catalog=antsavings_db;User ID=joao;Password=antsavings!bd1" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Carlos\\Desktop\\Ant\ Savings\\MyFinance\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='mysavings']/@connectionString" />
+  </parameter>
+</parameters>
