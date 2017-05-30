@@ -1,0 +1,13 @@
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\bin\Debug\MyFinance.Forms.exe.config
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\bin\Debug\MyFinance.Forms.exe
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\bin\Debug\MyFinance.Forms.pdb
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\obj\Debug\MyFinance.Forms.csprojResolveAssemblyReference.cache
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\obj\Debug\MyFinance.Forms.Form1.resources
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\obj\Debug\MyFinance.Forms.Properties.Resources.resources
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\obj\Debug\MyFinance.Forms.csproj.GenerateResource.Cache
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\obj\Debug\MyFinance.Forms.exe
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\obj\Debug\MyFinance.Forms.pdb
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\bin\Debug\MyFinance.Core.dll
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Forms\bin\Debug\MyFinance.Core.pdb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Forms\bin\Debug\EntityFramework.dll
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Forms\bin\Debug\EntityFramework.xml

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyFinance" Class="MyFinanceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=VAIO\JOAOSQL;Initial Catalog=MyFinance;User ID=sa" SettingsObjectName="MyFinance.Core.Properties.Settings" SettingsPropertyName="MyFinanceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DistributionPercentage" Member="DistributionPercentages">
+    <Type Name="DistributionPercentage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReserveID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Percentage" Type="System.Decimal" DbType="Decimal(4,3) NOT NULL" CanBeNull="false" />
+      <Column Name="DistributionRuleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="DistributionRule_DistributionPercentage" Member="DistributionRule" ThisKey="DistributionRuleId" OtherKey="Id" Type="DistributionRule" IsForeignKey="true" />
+      <Association Name="Fund_DistributionPercentage" Member="Fund" ThisKey="FundID" OtherKey="ID" Type="Fund" IsForeignKey="true" />
+      <Association Name="Reserve_DistributionPercentage" Member="Reserve" ThisKey="ReserveID" OtherKey="ID" Type="Reserve" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Transaction]" Member="Transactions">
+    <Type Name="Transaction">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ReserveID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Origins" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="FundOriginID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProfitId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Fund_Transaction" Member="Fund" ThisKey="FundID" OtherKey="ID" Type="Fund" IsForeignKey="true" />
+      <Association Name="Fund_Transaction1" Member="Fund1" ThisKey="FundOriginID" OtherKey="ID" Type="Fund" IsForeignKey="true" />
+      <Association Name="Profit_Transaction" Member="Profit" ThisKey="ProfitId" OtherKey="ID" Type="Profit" IsForeignKey="true" />
+      <Association Name="Reserve_Transaction" Member="Reserve" ThisKey="ReserveID" OtherKey="ID" Type="Reserve" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DistributionRule" Member="DistributionRules">
+    <Type Name="DistributionRule">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="DistributionRule_DistributionPercentage" Member="DistributionPercentages" ThisKey="Id" OtherKey="DistributionRuleId" Type="DistributionPercentage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fund" Member="Funds">
+    <Type Name="Fund">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Fund_DistributionPercentage" Member="DistributionPercentages" ThisKey="ID" OtherKey="FundID" Type="DistributionPercentage" />
+      <Association Name="Fund_Transaction" Member="Transactions" ThisKey="ID" OtherKey="FundID" Type="Transaction" />
+      <Association Name="Fund_Transaction1" Member="Transactions1" ThisKey="ID" OtherKey="FundOriginID" Type="Transaction" />
+      <Association Name="Fund_Profit" Member="Profits" ThisKey="ID" OtherKey="FundID" Type="Profit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profit" Member="Profits">
+    <Type Name="Profit">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FundID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Profit_Transaction" Member="Transactions" ThisKey="ID" OtherKey="ProfitId" Type="Transaction" />
+      <Association Name="Fund_Profit" Member="Fund" ThisKey="FundID" OtherKey="ID" Type="Fund" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reserve" Member="Reserves">
+    <Type Name="Reserve">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PeriodToWithdraw" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeUnit" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Reserve_DistributionPercentage" Member="DistributionPercentages" ThisKey="ID" OtherKey="ReserveID" Type="DistributionPercentage" />
+      <Association Name="Reserve_Transaction" Member="Transactions" ThisKey="ID" OtherKey="ReserveID" Type="Transaction" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6495EE59-F4FA-4582-B9A8-392A1D79101E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyFinance.Core</RootNamespace>
+    <AssemblyName>MyFinance.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\MyFinanceDataContext.cs" />
+    <Compile Include="FinancialOperations.cs" />
+    <Compile Include="FinancialQueries.cs" />
+    <Compile Include="Migrations\201312131418019_InitialCreate.cs" />
+    <Compile Include="Migrations\201312131418019_InitialCreate.Designer.cs">
+      <DependentUpon>201312131418019_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401221916503_addAbbreviations.cs" />
+    <Compile Include="Migrations\201401221916503_addAbbreviations.Designer.cs">
+      <DependentUpon>201401221916503_addAbbreviations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402201813350_createOperationEntity.cs" />
+    <Compile Include="Migrations\201402201813350_createOperationEntity.Designer.cs">
+      <DependentUpon>201402201813350_createOperationEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403292125006_addFinalValueToReserve.cs" />
+    <Compile Include="Migrations\201403292125006_addFinalValueToReserve.Designer.cs">
+      <DependentUpon>201403292125006_addFinalValueToReserve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404091904572_increaseValuePrecision.cs" />
+    <Compile Include="Migrations\201404091904572_increaseValuePrecision.Designer.cs">
+      <DependentUpon>201404091904572_increaseValuePrecision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404150031536_addFundType.cs" />
+    <Compile Include="Migrations\201404150031536_addFundType.Designer.cs">
+      <DependentUpon>201404150031536_addFundType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405161224287_fix-fundType.cs" />
+    <Compile Include="Migrations\201405161224287_fix-fundType.Designer.cs">
+      <DependentUpon>201405161224287_fix-fundType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405161440167_add-dateWithdraw-field.cs" />
+    <Compile Include="Migrations\201405161440167_add-dateWithdraw-field.Designer.cs">
+      <DependentUpon>201405161440167_add-dateWithdraw-field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405261725261_fixUndoFunc.cs" />
+    <Compile Include="Migrations\201405261725261_fixUndoFunc.Designer.cs">
+      <DependentUpon>201405261725261_fixUndoFunc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\DistributionPercentage.cs" />
+    <Compile Include="Model\DistributionRule.cs" />
+    <Compile Include="Model\Enumerators.cs" />
+    <Compile Include="Model\Fund.cs" />
+    <Compile Include="Model\Operation.cs" />
+    <Compile Include="Model\Reserve.cs" />
+    <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WSSGS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WSSGS\FachadaWSSGS.wsdl" />
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.getUltimosValoresSerieVOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.getUltimoValorVOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.getUltimoValorXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.getValorEspecialResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.getValoresSeriesVOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.getValoresSeriesXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.getValorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSSGS\MyFinance.Core.WSSGS.WSSerieVO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201312131418019_InitialCreate.resx">
+      <DependentUpon>201312131418019_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401221916503_addAbbreviations.resx">
+      <DependentUpon>201401221916503_addAbbreviations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402201813350_createOperationEntity.resx">
+      <DependentUpon>201402201813350_createOperationEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403292125006_addFinalValueToReserve.resx">
+      <DependentUpon>201403292125006_addFinalValueToReserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404091904572_increaseValuePrecision.resx">
+      <DependentUpon>201404091904572_increaseValuePrecision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404150031536_addFundType.resx">
+      <DependentUpon>201404150031536_addFundType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405161224287_fix-fundType.resx">
+      <DependentUpon>201405161224287_fix-fundType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405161440167_add-dateWithdraw-field.resx">
+      <DependentUpon>201405161440167_add-dateWithdraw-field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405261725261_fixUndoFunc.resx">
+      <DependentUpon>201405261725261_fixUndoFunc.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WSSGS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSSGS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSSGS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSSGS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

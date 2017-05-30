@@ -1,0 +1,13 @@
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Core\bin\Debug\MyFinance.Core.dll.config
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Core\bin\Debug\MyFinance.Core.dll
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Core\bin\Debug\MyFinance.Core.pdb
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Core\obj\Debug\MyFinance.Core.dll
+c:\users\carlos\documents\visual studio 2012\Projects\MyFinance.Core\MyFinance.Core\obj\Debug\MyFinance.Core.pdb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\obj\Debug\MyFinance.Core.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\bin\Debug\EntityFramework.dll
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\bin\Debug\EntityFramework.xml
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\obj\Debug\MyFinance.Core.Migrations.InitialCreate.resources
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\obj\Debug\MyFinance.Core.csproj.GenerateResource.Cache
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\MyFinance.Core\MyFinance.Core\obj\Debug\MyFinance.Core.Migrations.addAbbreviations.resources

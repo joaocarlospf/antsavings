@@ -1,0 +1,13 @@
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\bin\Release\MyFinance.Forms.exe.config
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\bin\Release\MyFinance.Forms.exe
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\bin\Release\MyFinance.Forms.pdb
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\bin\Release\MyFinance.Core.dll
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\bin\Release\EntityFramework.dll
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\bin\Release\MyFinance.Core.pdb
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\bin\Release\EntityFramework.xml
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\obj\Release\MyFinance.Forms.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\obj\Release\MyFinance.Forms.Form1.resources
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\obj\Release\MyFinance.Forms.Properties.Resources.resources
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\obj\Release\MyFinance.Forms.csproj.GenerateResource.Cache
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\obj\Release\MyFinance.Forms.exe
+C:\Users\Carlos\Desktop\Ant Savings\MyFinance.Forms\obj\Release\MyFinance.Forms.pdb
